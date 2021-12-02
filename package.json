@@ -1,9 +1,9 @@
 {
     "scripts": {
-        "test": "jest --watch",
-        "test-once": "jest",
-        "start": "parcel kbot.html",
-        "build": "parcel build kbot.html --public-url ./"
+        "test": "jest --watch --env='jsdom'",
+        "test-once": "jest --env='jsdom'",
+        "start": "parcel index.html",
+        "build": "parcel build index.html --public-url ./"
     },
     "dependencies": {
       "@babel/core": "^7.15.4",
