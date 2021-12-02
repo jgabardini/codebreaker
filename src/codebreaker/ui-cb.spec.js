@@ -7,6 +7,10 @@ describe("codebreaker", () => {
         document.body.innerHTML = fs.readFileSync("index.html", "utf8");
         require("../codebreaker/presenter");
     })
+    afterEach(() => {
+        const resultado = document.querySelector("#resultado");
+        resultado.innerHTML= ""
+    })
 
     it("Titulo Bienvenida", () => {  
         // validar que tiene la bienvenida
@@ -32,4 +36,14 @@ describe("codebreaker", () => {
 
         expect(resultado).toEqual("Ganaste!!");
     })
+    it("Ingreso un numero incorrecto no hace nada",() => {
+
+        document.querySelector("#numero").value = "6";
+        document.querySelector("input[type=submit]").click();
+
+        const resultado=document.querySelector("#resultado").innerHTML
+
+        expect(resultado).toEqual("");
+    })
+
 })
