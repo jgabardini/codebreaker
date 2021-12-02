@@ -1,4 +1,4 @@
-// import KBot from "./kbot";
+import CodeBreaker from "./codebreaker";
 
 const numero = document.querySelector("#numero");
 const form = document.querySelector("#cb-form");
@@ -7,9 +7,9 @@ const resultado = document.querySelector("#resultado");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  // const kbot = new KBot("en")
-  // const mensaje = kbot.saludar(nombre.value)
-  if (numero.value == "7") {
+  const codebreaker = new CodeBreaker("7")
+  codebreaker.adivinar(numero.value)
+  if ( codebreaker.ganoElJuego()) {
     const mensaje= "Ganaste!!"
     resultado.innerHTML = mensaje;
   }
