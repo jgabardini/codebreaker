@@ -5,7 +5,7 @@ describe("codebreaker", () => {
     beforeAll(() => {
         // acceder a la index
         document.body.innerHTML = fs.readFileSync("index.html", "utf8");
-        // require("../codebreaker/presenter");
+        require("../codebreaker/presenter");
     })
 
     it("Titulo Bienvenida", () => {  
@@ -16,5 +16,20 @@ describe("codebreaker", () => {
     it("Cartel visble de lejos", () => {  
         const titulo= document.querySelector("h1").innerHTML
         expect(titulo).toEqual("¡Ganate un bono!")
+    })
+    it("Mensaje vacio al inicio",() => {
+
+        const resultado=document.querySelector("#resultado").innerHTML
+
+        expect(resultado).toEqual("");
+    })
+    it("Ingreso un numero correcto y gané",() => {
+
+        document.querySelector("#numero").value = "7";
+        document.querySelector("input[type=submit]").click();
+
+        const resultado=document.querySelector("#resultado").innerHTML
+
+        expect(resultado).toEqual("Ganaste!!");
     })
 })
